@@ -12,7 +12,7 @@ export class GraficoDonaComponent implements OnInit {
   // Doughnut
   @Input() ChartLabels: Label[] = [];
   @Input() ChartData: MultiDataSet = [];
-  @Input() ChartType: ChartType = '';
+  @Input() ChartType: string = '';
 
   constructor() { }
 
