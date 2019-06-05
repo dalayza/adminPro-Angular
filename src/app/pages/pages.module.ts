@@ -18,13 +18,18 @@ import { IncrementalComponent } from '../components/incremental/incremental.comp
 import { ChartsModule } from 'ng2-charts';
 import { GraficoDonaComponent } from '../components/grafico-dona/grafico-dona.component';
 
+// AccountSetting
+import { AccountSettingComponent } from './account-setting/account-setting.component';
+
 @NgModule({
     declarations: [
         PagesComponent,
         DashboardComponent,
         ProgressComponent,
         Graficas1Component,
-        GraficoDonaComponent
+        IncrementalComponent,
+        GraficoDonaComponent,
+        AccountSettingComponent
       ],
       exports: [
         DashboardComponent,
