@@ -20,6 +20,8 @@ import { GraficoDonaComponent } from '../components/grafico-dona/grafico-dona.co
 
 // AccountSetting
 import { AccountSettingComponent } from './account-setting/account-setting.component';
+import { PromesasComponent } from './promesas/promesas.component';
+import { RxjsComponent } from './rxjs/rxjs.component';
 
 @NgModule({
     declarations: [
@@ -29,7 +31,9 @@ import { AccountSettingComponent } from './account-setting/account-setting.compo
         Graficas1Component,
         IncrementalComponent,
         GraficoDonaComponent,
-        AccountSettingComponent
+        AccountSettingComponent,
+        PromesasComponent,
+        RxjsComponent
       ],
       exports: [
         DashboardComponent,
