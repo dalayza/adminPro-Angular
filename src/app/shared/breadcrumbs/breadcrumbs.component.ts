@@ -38,6 +38,6 @@ export class BreadcrumbsComponent implements OnInit {
       filter( evento => evento instanceof ActivationEnd),
       filter( (evento: ActivationEnd) => evento.snapshot.firstChild === null),
       map( (evento: ActivationEnd) => evento.snapshot.data),
-    )
+    );
   }
 }
