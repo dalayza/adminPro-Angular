@@ -8,23 +8,27 @@ import { HeaderComponent } from './header/header.component';
 import { SidebarComponent } from './sidebar/sidebar.component';
 import { BreadcrumbsComponent } from './breadcrumbs/breadcrumbs.component';
 
+// Pipes
+import { PipesModule } from '../pipes/pipes.module';
+
 @NgModule({
-  imports: [
-    RouterModule,
-    CommonModule
-  ],
-    declarations: [
-        NonpagefoundComponent,
-        HeaderComponent,
-        SidebarComponent,
-        BreadcrumbsComponent
-      ],
-      exports: [
-        NonpagefoundComponent,
-        HeaderComponent,
-        SidebarComponent,
-        BreadcrumbsComponent
-      ]
+  declarations: [
+      NonpagefoundComponent,
+      HeaderComponent,
+      SidebarComponent,
+      BreadcrumbsComponent
+    ],
+    exports: [
+      NonpagefoundComponent,
+      HeaderComponent,
+      SidebarComponent,
+      BreadcrumbsComponent
+    ],
+    imports: [
+      RouterModule,
+      CommonModule,
+      PipesModule
+    ]
 })
 
 export class SharedModule { }
