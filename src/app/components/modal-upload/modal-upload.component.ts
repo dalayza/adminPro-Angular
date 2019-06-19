@@ -2,9 +2,9 @@ import { Component, OnInit } from '@angular/core';
 
 // sweet alert 2
 import Swal from 'sweetalert2';
+
 import { SubirArchivoService } from '../../services/subir-archivo/subir-archivo.service';
 import { ModalUploadService } from './modal-upload.service';
-import { connectableObservableDescriptor } from 'rxjs/internal/observable/ConnectableObservable';
 
 @Component({
   selector: 'app-modal-upload',
