@@ -2,6 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { Usuario } from '../../models/usuario.model';
 import { UsuarioService } from '../../services/service.index';
 
+// sweet alert 2
+import Swal from 'sweetalert2';
+
 @Component({
   selector: 'app-profile',
   templateUrl: './profile.component.html',
@@ -15,6 +18,7 @@ export class ProfileComponent implements OnInit {
   imagenTemp: any;
 
   constructor(
+// tslint:disable-next-line: variable-name
     public _usuarioService: UsuarioService
   ) {
     this.usuario = this._usuarioService.usuario;
@@ -27,36 +31,41 @@ export class ProfileComponent implements OnInit {
     // console.log( usuario );
 
     this.usuario.nombre = usuario.nombre;
-    this.usuario.email = usuario.email;
-
     if ( !this.usuario.google ) {
       this.usuario.email = usuario.email;
     }
 
     this._usuarioService.actualizarUsuario( this.usuario )
-                        .subscribe(
+                .subscribe(
                           // (resp: any) => {
                           //   console.log( resp );
                           // }
-                        );
+                );
+
   }
 
-  seleccionImagen( archivo: File ) {
+  seleccionImage( archivo: File ) {
+
     if ( !archivo ) {
       this.imagenSubir = null;
       return;
     }
     // console.log( archivo );
 
-    if ( archivo.type.indexOf('imagen') < 0 ) {
-      // swal('Solo imagenes', 'El archivo seleccionado no es una imagen', 'error');
+    if ( archivo.type.indexOf('image') < 0 ) {
+      Swal.fire({
+        type: 'error',
+        title: 'Oops...',
+        text: 'EL archivo seleccionado no es una imagen!'
+      });
       this.imagenSubir = null;
+      return;
     }
 
     this.imagenSubir = archivo;
 
-    let reader = new FileReader();
-    let urlImagenTemp = reader.readAsDataURL( archivo );
+    const reader = new FileReader();
+    const urlImagenTemp = reader.readAsDataURL( archivo );
 
     reader.onloadend = () => {
       // console.log( reader.result );
@@ -65,6 +74,9 @@ export class ProfileComponent implements OnInit {
   }
 
   cambiarImagen() {
+
     this._usuarioService.cambiarImagen( this.imagenSubir, this.usuario._id );
+
   }
+
 }
