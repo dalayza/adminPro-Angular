@@ -22,6 +22,7 @@ export class RegisterComponent implements OnInit {
   forma: FormGroup;
 
   constructor(
+// tslint:disable-next-line: variable-name
     public _usuarioService: UsuarioService,
     public router: Router
   ) { }
@@ -71,12 +72,13 @@ export class RegisterComponent implements OnInit {
 
     this._usuarioService.crearUsuario( usuario )
                         .subscribe( resp => {
-                          console.log('Respuesta: ', resp);
+                          // console.log('Respuesta: ', resp);
+
                           this.router.navigate(['/login']);
                         });
 
     // console.log('Forma valida', this.forma.valid );
-    console.log( this.forma.value );
+    // console.log( this.forma.value );
   }
 
   sonIguales( campo1: string, campo2: string ) {

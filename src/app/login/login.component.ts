@@ -21,6 +21,7 @@ export class LoginComponent implements OnInit {
 
   constructor(
     public router: Router,
+// tslint:disable-next-line: variable-name
     public _usuarioService: UsuarioService
     ) { }
 
@@ -57,7 +58,7 @@ export class LoginComponent implements OnInit {
                             this.router.navigate(['/dashboard']); // enrutamiento 1
                             // window.location.href = '#/dashboard'; // enrutamiento 2
                           });
-      console.log( token );
+      // console.log( token );
     });
   }
 
@@ -66,7 +67,7 @@ export class LoginComponent implements OnInit {
       return;
     }
 
-    let usuario = new Usuario( null, forma.value.email, forma.value.password );
+    const usuario = new Usuario( null, forma.value.email, forma.value.password );
     this._usuarioService.login( usuario, forma.value.recuerdame )
                         .subscribe( correcto => this.router.navigate(['/dashboard']) );
 
