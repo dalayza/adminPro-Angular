@@ -1,6 +1,6 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { Observable, Subscriber, Subscription } from 'rxjs';
-import { retry, map, filter } from 'rxjs/operators';
+import { map, filter } from 'rxjs/operators';
 
 @Component({
   selector: 'app-rxjs',
@@ -12,10 +12,7 @@ export class RxjsComponent implements OnInit, OnDestroy {
   subscription: Subscription;
 
   constructor() {
-    this.subscription = this.regresaObservable().pipe(
-      retry(2)
-    )
-    .subscribe(
+    this.subscription = this.regresaObservable().subscribe(
       numero => console.log("subs: ", numero),
       error => console.error("Error en el obs", error),
       () => console.log("El observable termino!"),
@@ -34,7 +31,7 @@ export class RxjsComponent implements OnInit, OnDestroy {
     return new Observable( (observer: Subscriber<any>) => {
       let contador = 0;
       const intervalo = setInterval( () => {
-        contador ++;
+        contador += 1;
 
         const salida = {
           valor: contador
@@ -49,9 +46,12 @@ export class RxjsComponent implements OnInit, OnDestroy {
         // if ( contador === 2 ) {
         //   observer.error("Auxilio!");
         // }
-      }, 1000);
-    }).pipe(
-      map( resp => resp.valor ),
+      }, 500);
+    })
+    .pipe(
+      map( (resp: any) => {
+        return resp.valor;
+      }),
       filter( ( valor, index ) => {
         // console.log("Filter: ", valor, index);
         if ( (valor % 2) === 1) {

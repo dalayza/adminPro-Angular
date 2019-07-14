@@ -7,6 +7,7 @@ import { NonpagefoundComponent } from './nonpagefound/nonpagefound.component';
 import { HeaderComponent } from './header/header.component';
 import { SidebarComponent } from './sidebar/sidebar.component';
 import { BreadcrumbsComponent } from './breadcrumbs/breadcrumbs.component';
+import { ModalUploadComponent } from '../components/modal-upload/modal-upload.component';
 
 // Pipes
 import { PipesModule } from '../pipes/pipes.module';
@@ -16,13 +17,15 @@ import { PipesModule } from '../pipes/pipes.module';
       NonpagefoundComponent,
       HeaderComponent,
       SidebarComponent,
-      BreadcrumbsComponent
+      BreadcrumbsComponent,
+      ModalUploadComponent
     ],
     exports: [
       NonpagefoundComponent,
       HeaderComponent,
       SidebarComponent,
-      BreadcrumbsComponent
+      BreadcrumbsComponent,
+      ModalUploadComponent
     ],
     imports: [
       RouterModule,
